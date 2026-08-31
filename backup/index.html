@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SCAMSTOP is a calm, AI-powered scam and fraud detection assistant that warns you before money or data is lost. For SMS, calls, UPI and messaging." />
+  <title>SCAMSTOP — Stop the scam before it stops you.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+          colors: {
+            brand: { 50: '#f0fdfa', 100: '#ccfbf1', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a', 950: '#042f2e' },
+            ink: '#0f172a',
+            muted: '#475569'
+          },
+          boxShadow: { soft: '0 8px 30px rgba(15,118,110,0.08)', card: '0 10px 40px rgba(2,6,23,0.08)' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-sans text-slate-800 antialiased bg-white selection:bg-brand-100">
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-brand-700 focus:px-4 focus:py-2 focus:rounded-full focus:shadow">Skip to content</a>
+
+  <!-- Header -->
+  <header id="site-header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-shadow">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-[72px]">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group" aria-label="SCAMSTOP home">
+          <span class="w-9 h-9 rounded-xl bg-brand-700 flex items-center justify-center shadow-soft group-hover:bg-brand-800 transition">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3L4 7.5V12.2C4 16.4 6.9 20.3 12 21C17.1 20.3 20 16.4 20 12.2V7.5L12 3Z" fill="white" fill-opacity="0.95"/>
+              <path d="M8.5 12.3L11 14.8L16.2 9.2" stroke="#0f766e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="text-[19px] font-extrabold tracking-tight text-slate-900">SCAMSTOP</span>
+          <span class="hidden sm:inline text-xs font-medium text-slate-500 border border-slate-200 rounded-full px-2 py-0.5">AI PROTECTION</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-7" aria-label="Primary">
+          <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">How It Works</a>
+          <a href="#features" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Features</a>
+          <a href="#who-its-for" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Who It's For</a>
+          <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Pricing</a>
+          <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">FAQ</a>
+          <a href="#report" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition">Report a Scam</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800 transition shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">Join the Waitlist</a>
+        </div>
+
+        <!-- Mobile button -->
+        <button id="menu-btn" class="lg:hidden w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-100 bg-white">
+      <nav class="px-5 py-5 flex flex-col gap-1" aria-label="Mobile">
+        <a href="#how-it-works" class="py-3 text-sm font-medium border-b border-slate-50">How It Works</a>
+        <a href="#features" class="py-3 text-sm font-medium border-b border-slate-50">Features</a>
+        <a href="#who-its-for" class="py-3 text-sm font-medium border-b border-slate-50">Who It's For</a>
+        <a href="#pricing" class="py-3 text-sm font-medium border-b border-slate-50">Pricing</a>
+        <a href="#faq" class="py-3 text-sm font-medium border-b border-slate-50">FAQ</a>
+        <a href="#report" class="py-3 text-sm font-medium">Report a Scam</a>
+        <a href="#waitlist" class="mt-3 inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-700 text-white text-sm font-semibold">Join the Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-teal-50/70 via-white to-white pointer-events-none"></div>
+      <div class="absolute -top-24 -right-32 w-[520px] h-[520px] bg-teal-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center py-10 sm:py-14 lg:py-20">
+          <!-- Copy -->
+          <div class="reveal">
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3 py-1.5 shadow-sm mb-6">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span>
+              <span class="text-xs font-semibold text-slate-700 tracking-wide">TRUSTED BY FAMILIES PROTECTING ELDERLY PARENTS</span>
+            </div>
+            <h1 class="text-[34px] sm:text-[46px] lg:text-[56px] font-extrabold leading-[0.95] tracking-tight text-slate-900">
+              Stop the scam<br/>
+              <span class="text-brand-700">before it stops you.</span>
+            </h1>
+            <p class="mt-5 text-[17px] sm:text-lg leading-relaxed text-slate-600 max-w-xl">
+              SCAMSTOP reads the warning signs across messages, calls and links — the way a fraud investigator would — and warns you <span class="font-semibold text-slate-800">before</span> money or personal data is lost. Calm, clear, and made for everyday people.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#waitlist" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-brand-700 text-white font-semibold hover:bg-brand-800 transition shadow-lg shadow-teal-700/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+                Join the Waitlist
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#how-it-works" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white border border-slate-200 text-slate-900 font-semibold hover:bg-slate-50 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#0f766e" stroke-width="1.6"/><path d="M10 8.5L16 12L10 15.5V8.5Z" fill="#0f766e"/></svg>
+                See How It Works
+              </a>
+            </div>
+            <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
+              <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 4v5c0 4.4-2.9 8.4-7 9.5C7.9 20.4 5 16.4 5 12V7l7-4z" stroke="#0f766e" stroke-width="1.4"/><path d="M9 12l2 2 4-4.5" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Privacy by design</span>
+              <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+              <span>No spam, ever</span>
+              <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+              <span>Free to start</span>
+            </div>
+            <!-- Mini social proof -->
+            <div class="mt-8 flex items-center gap-3">
+              <div class="flex -space-x-2" aria-hidden="true">
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=5" alt="" />
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=12" alt="" />
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?img=32" alt="" />
+                <span class="w-8 h-8 rounded-full bg-slate-900 text-white text-xs font-bold flex items-center justify-center border-2 border-white">+2k</span>
+              </div>
+              <div class="text-sm">
+                <div class="flex text-amber-400" aria-label="Rated 4.9 out of 5">★★★★★</div>
+                <div class="text-slate-600"><span class="font-semibold text-slate-900">4.9/5</span> from early testers</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone mock -->
+          <div class="relative lg:pl-8 reveal delay-100">
+            <div class="mx-auto max-w-[380px]">
+              <!-- phone frame -->
+              <div class="relative bg-slate-900 rounded-[42px] p-3 shadow-[0_30px_80px_rgba(2,6,23,0.25)]">
+                <div class="bg-white rounded-[32px] overflow-hidden relative">
+                  <!-- notch -->
+                  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-900 rounded-b-2xl z-10"></div>
+                  <!-- header -->
+                  <div class="bg-slate-50 px-5 pt-8 pb-3 flex items-center justify-between border-b border-slate-100">
+                    <div class="flex items-center gap-2">
+                      <span class="w-7 h-7 rounded-full bg-brand-700 flex items-center justify-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 7.5V12.2C4 16.4 6.9 20.3 12 21C17.1 20.3 20 16.4 20 12.2V7.5L12 3Z" fill="white"/><path d="M8.5 12.3L11 14.8L16.2 9.2" stroke="#0f766e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                      <div>
+                        <div class="text-xs font-bold leading-none">SCAMSTOP</div>
+                        <div class="text-[10px] text-emerald-600 font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Protecting you</div>
+                      </div>
+                    </div>
+                    <span class="text-[11px] text-slate-500">9:41</span>
+                  </div>
+                  <!-- message -->
+                  <div class="p-4 bg-[#f8fafc]">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px] font-bold">?</span>
+                      <div>
+                        <div class="text-xs font-semibold">Unknown • +91 98•••••10</div>
+                        <div class="text-[11px] text-slate-500">SMS • Just now</div>
+                      </div>
+                      <span class="ml-auto text-[10px] bg-slate-900 text-white rounded-full px-2 py-1">New sender</span>
+                    </div>
+                    <div class="bg-white rounded-2xl p-3 border border-slate-200 shadow-sm text-[13px] leading-relaxed text-slate-700">
+                      Your parcel could not be delivered due to incomplete address. Pay <span class="font-bold">₹49</span> to reschedule: <span class="text-blue-600 underline">http://delivery-reschedule-secure-pay.in</span><br/>
+                      Last attempt today or parcel returned.
+                    </div>
+                    <!-- SCAMSTOP card inside phone -->
+                    <div class="mt-4 bg-white rounded-2xl border-2 border-red-200 overflow-hidden shadow-card">
+                      <div class="bg-red-50 px-3 py-2 flex items-center gap-2 border-b border-red-100">
+                        <span class="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 8v6M12 16h.01M10.3 3.3L3.3 10.3a2 2 0 0 0 0 2.8l7 7a2 2 0 0 0 2.8 0l7-7a2 2 0 0 0 0-2.8l-7-7a2 2 0 0 0-2.8 0z"/></svg>
+                        </span>
+                        <span class="text-xs font-extrabold tracking-wide text-red-700">HIGH RISK — LIKELY SCAM</span>
+                        <span class="ml-auto text-[11px] font-bold bg-red-600 text-white rounded-full px-2 py-0.5">92%</span>
+                      </div>
+                      <div class="p-3">
+                        <div class="text-[11px] font-semibold text-slate-900 mb-2">Why this was flagged (6 flags):</div>
+                        <ul class="space-y-1.5 text-[11px] text-slate-700">
+                          <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span> Unknown sender, first time contacting you</li>
+                          <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span> Pretending to be a courier service</li>
+                          <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0"></span> Creates urgency — “last attempt today”</li>
+                          <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0"></span> External payment link, not official</li>
+                        </ul>
+                        <div class="mt-3 bg-teal-50 border border-teal-100 rounded-xl p-2.5">
+                          <div class="text-[11px] font-bold text-teal-800 flex items-center gap-1.5"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg> What to do</div>
+                          <div class="text-[11px] text-teal-900 leading-snug mt-1">Don’t tap the link. Track your parcel only in your official courier app. Share with family?</div>
+                        </div>
+                        <div class="mt-3 grid grid-cols-2 gap-2">
+                          <button class="py-2 rounded-full bg-slate-900 text-white text-xs font-semibold">Ask Family</button>
+                          <button class="py-2 rounded-full border border-slate-200 text-xs font-semibold">Block & Report</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-3 flex items-center justify-center gap-1.5 text-[10px] font-medium text-slate-500">
+                      <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> SCAMSTOP checked link, sender & language
+                    </div>
+                  </div>
+                  <div class="h-4 bg-white flex justify-center items-center"><span class="w-20 h-1 bg-slate-900 rounded-full"></span></div>
+                </div>
+              </div>
+              <!-- floaters -->
+              <div class="hidden sm:flex absolute -right-4 top-16 bg-white rounded-2xl shadow-card border border-slate-100 p-3 items-center gap-3">
+                <span class="w-9 h-9 rounded-full bg-emerald-500 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg></span>
+                <div><div class="text-xs font-bold">Link checked</div><div class="text-xs text-slate-500">Not an official site</div></div>
+              </div>
+              <div class="hidden sm:flex absolute -left-6 bottom-10 bg-white rounded-2xl shadow-card border border-slate-100 p-3 items-center gap-3">
+                <span class="w-9 h-9 rounded-full bg-amber-400 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></span>
+                <div><div class="text-xs font-bold">Urgency detected</div><div class="text-xs text-slate-500">“Act now” pressure</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-teal-50 border border-teal-100 rounded-full px-3 py-1">WHY THIS MATTERS</span>
+          <h2 class="mt-4 text-[30px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Scams feel personal. That's the point.</h2>
+          <p class="mt-4 text-[17px] leading-relaxed text-slate-600">Scams today are friendly, urgent and tailored to you. A single message looks harmless — but together, they form a pattern. Traditional spam filters miss that pattern. SCAMSTOP doesn't.</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-3 gap-6 reveal">
+          <div class="rounded-3xl border border-slate-100 bg-slate-50/60 p-7">
+            <div class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="font-bold text-slate-900">They feel personal</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Messages use your name, location or recent activity to sound real. Even careful people can be fooled.</p>
+            <div class="mt-4 text-xs font-semibold text-slate-500">Illustrative — scams like these are rising fast</div>
+          </div>
+          <div class="rounded-3xl border border-slate-100 bg-slate-50/60 p-7">
+            <div class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3 class="font-bold text-slate-900">They move fast</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">“Pay now, act in 10 minutes, account blocked.” Speed is a weapon. It stops you from double-checking.</p>
+            <div class="mt-4 text-xs font-semibold text-slate-500">Pressure is a classic red flag</div>
+          </div>
+          <div class="rounded-3xl border border-slate-100 bg-slate-50/60 p-7">
+            <div class="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-1.9.5 4.48 4.48 0 0 0 1.95-2.5 8.94 8.94 0 0 1-2.8 1.1 4.48 4.48 0 0 0-7.6 4.1 12.7 12.7 0 0 1-9.2-4.7 4.48 4.48 0 0 0 1.4 6 4.4 4.4 0 0 1-2-.55v.06a4.48 4.48 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2 .07 4.48 4.48 0 0 0 4.2 3.1A9 9 0 0 1 2 19.5a12.7 12.7 0 0 0 6.9 2"/></svg></div>
+            <h3 class="font-bold text-slate-900">One message looks harmless</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Spam filters check one word. Real scams spread risk across calls, texts, links and timing. We connect the dots.</p>
+            <div class="mt-4 text-xs font-semibold text-slate-500">We check the whole chain, not one word</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-16 sm:py-20 bg-slate-50/70 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-white border border-teal-100 rounded-full px-3 py-1">HOW IT WORKS</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Thinks like a fraud investigator.</h2>
+          <p class="mt-3 text-slate-600">Not a keyword alarm. SCAMSTOP builds confidence as red flags stack up.</p>
+        </div>
+
+        <!-- Steps -->
+        <div class="mt-10 relative">
+          <!-- connector desktop -->
+          <div class="hidden lg:block absolute top-[34px] left-[5%] right-[5%] h-0.5 bg-slate-200"></div>
+          <div class="hidden lg:block absolute top-[34px] left-[5%] right-[55%] h-0.5 bg-brand-700"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 relative">
+            <!-- step 1 -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 relative reveal">
+              <div class="w-10 h-10 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-sm mx-auto lg:mx-0">1</div>
+              <div class="w-9 h-9 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center mx-auto lg:mx-0 mt-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              </div>
+              <h3 class="mt-3 text-sm font-bold text-slate-900 text-center lg:text-left">Who is contacting you?</h3>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600 text-center lg:text-left">Known vs unknown, new number, spoofed contact.</p>
+            </div>
+            <!-- step 2 -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 relative reveal">
+              <div class="w-10 h-10 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-sm mx-auto lg:mx-0">2</div>
+              <div class="w-9 h-9 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center mx-auto lg:mx-0 mt-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 3l7 4v5c0 4.4-2.9 8.4-7 9.5C7.9 20.4 5 16.4 5 12V7l7-4z"/></svg>
+              </div>
+              <h3 class="mt-3 text-sm font-bold text-slate-900 text-center lg:text-left">Who are they pretending to be?</h3>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600 text-center lg:text-left">Your bank, courier, govt, family, employer.</p>
+            </div>
+            <!-- step 3 -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 relative reveal">
+              <div class="w-10 h-10 rounded-full bg-brand-700 text-white flex items-center justify-center font-bold text-sm mx-auto lg:mx-0">3</div>
+              <div class="w-9 h-9 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center mx-auto lg:mx-0 mt-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.6"><path d="M12 9v4"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <h3 class="mt-3 text-sm font-bold text-slate-900 text-center lg:text-left">What emotion are they triggering?</h3>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600 text-center lg:text-left">Fear, urgency, love, greed — to rush you.</p>
+            </div>
+            <!-- step 4 -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 relative reveal">
+              <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm mx-auto lg:mx-0">4</div>
+              <div class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center mx-auto lg:mx-0 mt-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h6M12 7v10"/></svg>
+              </div>
+              <h3 class="mt-3 text-sm font-bold text-slate-900 text-center lg:text-left">What action do they want?</h3>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600 text-center lg:text-left">Pay now, share OTP, click a link, install app.</p>
+            </div>
+            <!-- step 5 -->
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 relative reveal">
+              <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm mx-auto lg:mx-0">5</div>
+              <div class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center mx-auto lg:mx-0 mt-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 1 0 7.07 7.07L13 19"/></svg>
+              </div>
+              <h3 class="mt-3 text-sm font-bold text-slate-900 text-center lg:text-left">Where are they redirecting you?</h3>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600 text-center lg:text-left">External link, QR, fake site, new UPI ID.</p>
+            </div>
+            <!-- step 6 -->
+            <div class="bg-white rounded-3xl border border-red-100 p-6 relative reveal">
+              <div class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-sm mx-auto lg:mx-0">6</div>
+              <div class="w-9 h-9 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mx-auto lg:mx-0 mt-4">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.6"><path d="M12 8v5M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <h3 class="mt-3 text-sm font-bold text-slate-900 text-center lg:text-left">What happens after you interact?</h3>
+              <p class="mt-1 text-xs leading-relaxed text-slate-600 text-center lg:text-left">Money leaves, data leaks, access gained.</p>
+            </div>
+          </div>
+          <div class="mt-8 bg-white rounded-3xl border border-slate-200 p-6 flex flex-col lg:flex-row items-start lg:items-center gap-4 reveal">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-full bg-teal-50 border border-teal-100 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M12 8v2M12 14h.01"/></svg></span>
+              <div class="text-sm font-bold">Confidence stacks up</div>
+            </div>
+            <p class="text-sm leading-relaxed text-slate-600 lg:ml-2">One flag is not enough to warn you. SCAMSTOP waits until several independent signals line up — just like a trained investigator — so you get fewer false alarms and fewer missed scams. Every warning shows its reasons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE DEMO / SAMPLE WARNING -->
+    <section class="py-16 sm:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-red-600 bg-red-50 border border-red-100 rounded-full px-3 py-1">LIVE DEMO • SAMPLE WARNING</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">See how a scam gets caught, <span class="text-red-600">step by step.</span></h2>
+          <p class="mt-3 text-slate-600">This is a fictional example. Real warnings look just like this — calm, clear, and actionable.</p>
+        </div>
+
+        <!-- Centerpiece card -->
+        <div class="mt-10 max-w-[880px] mx-auto reveal">
+          <div class="rounded-[32px] bg-white border border-slate-200 shadow-[0_20px_80px_rgba(2,6,23,0.12)] overflow-hidden">
+            <!-- top bar -->
+            <div class="h-2 bg-gradient-to-r from-red-600 via-amber-500 to-red-600"></div>
+            <div class="px-6 sm:px-8 py-6 border-b border-slate-100 flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 bg-red-600 text-white text-xs font-extrabold tracking-wide rounded-full px-3 py-1.5">
+                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> HIGH RISK
+              </span>
+              <span class="text-sm font-semibold text-slate-900">Likely courier fee scam</span>
+              <span class="hidden sm:inline w-1 h-1 bg-slate-300 rounded-full"></span>
+              <span class="text-sm text-slate-500">Detected 12 seconds after message arrived</span>
+              <span class="ml-auto inline-flex items-center gap-2 bg-slate-900 text-white text-xs font-bold rounded-full px-3 py-1.5">Confidence 92% <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span></span>
+            </div>
+
+            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-0">
+              <!-- left: message + flags -->
+              <div class="p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-100">
+                <div class="text-xs font-bold tracking-widest text-slate-500 mb-3">ORIGINAL MESSAGE (FICTIONAL)</div>
+                <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                  <div class="flex items-center gap-2 text-xs text-slate-600 mb-2"><span class="w-6 h-6 rounded-full bg-white border border-slate-200 flex items-center justify-center font-bold">?</span> Unknown • +91 77•••••09 <span class="ml-auto bg-white border border-slate-200 rounded-full px-2 py-0.5">SMS</span></div>
+                  <p class="text-sm leading-relaxed text-slate-800">Your parcel could not be delivered due to incomplete address. Pay ₹49 to reschedule: <span class="text-blue-600 underline break-all">http://delivery-reschedule-secure-pay.in/track?id=9482</span><br/>Last attempt today or parcel will be returned to sender.</p>
+                </div>
+
+                <div class="mt-6">
+                  <div class="text-xs font-bold tracking-widest text-slate-500 mb-3">WHY IT WAS FLAGGED — 7 CHECKS</div>
+                  <ul class="space-y-2.5">
+                    <li class="flex gap-3 items-start bg-red-50/60 border border-red-100 rounded-xl px-3 py-2.5"><span class="mt-0.5 w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 8v5M12 16h.01"/></svg></span><div><div class="text-sm font-semibold text-slate-900">Unknown sender</div><div class="text-xs text-slate-600">First contact, not in your contacts, number not verified</div></div><span class="ml-auto text-xs font-bold text-red-600 hidden sm:inline">HIGH</span></li>
+                    <li class="flex gap-3 items-start bg-red-50/60 border border-red-100 rounded-xl px-3 py-2.5"><span class="mt-0.5 w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 3l7 4v5c0 4.4-2.9 8.4-7 9.5C7.9 20.4 5 16.4 5 12V7l7-4z"/></svg></span><div><div class="text-sm font-semibold text-slate-900">Courier impersonation</div><div class="text-xs text-slate-600">Pretending to be a delivery service you didn’t order from</div></div></li>
+                    <li class="flex gap-3 items-start bg-amber-50 border border-amber-100 rounded-xl px-3 py-2.5"><span class="mt-0.5 w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0">!</span><div><div class="text-sm font-semibold text-slate-900">Urgency language</div><div class="text-xs text-slate-600">“Last attempt today” pressures you to act without checking</div></div></li>
+                    <li class="flex gap-3 items-start bg-red-50/60 border border-red-100 rounded-xl px-3 py-2.5"><span class="mt-0.5 w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 1 0 7.07 7.07L13 19"/></svg></span><div><div class="text-sm font-semibold text-slate-900">External link, not official</div><div class="text-xs text-slate-600">Link is new, not on the courier’s official domain (link reputation: poor)</div></div></li>
+                    <li class="flex gap-3 items-start bg-white border border-slate-200 rounded-xl px-3 py-2.5"><span class="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center shrink-0 text-[10px] font-bold">₹</span><div><div class="text-sm font-semibold text-slate-900">Small payment request</div><div class="text-xs text-slate-600">Tiny fee tests your willingness to pay — then asks for more</div></div></li>
+                    <li class="flex gap-3 items-start bg-white border border-slate-200 rounded-xl px-3 py-2.5"><span class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center shrink-0"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><div><div class="text-sm font-semibold text-slate-900">New recipient + rapid timing</div><div class="text-xs text-slate-600">Sent seconds after a missed call — cross-channel pattern</div></div></li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- right: flow + action -->
+              <div class="p-6 sm:p-8 bg-slate-50/50">
+                <div class="text-xs font-bold tracking-widest text-slate-500 mb-3">ATTACK PATTERN DETECTED</div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-4">
+                  <div class="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
+                    <span class="px-2.5 py-1 rounded-full bg-red-600 text-white">Impersonation</span><span class="text-slate-400">→</span>
+                    <span class="px-2.5 py-1 rounded-full bg-amber-500 text-white">Fear</span><span class="text-slate-400">→</span>
+                    <span class="px-2.5 py-1 rounded-full bg-orange-500 text-white">Urgency</span><span class="text-slate-400">→</span>
+                    <span class="px-2.5 py-1 rounded-full bg-slate-900 text-white">Redirection</span><span class="text-slate-400">→</span>
+                    <span class="px-2.5 py-1 rounded-full bg-red-600 text-white">Payment</span>
+                  </div>
+                  <div class="mt-3 h-2 bg-slate-100 rounded-full overflow-hidden flex">
+                    <span class="w-[92%] bg-gradient-to-r from-red-600 to-amber-500"></span>
+                  </div>
+                  <div class="mt-1 text-xs text-slate-500 flex justify-between"><span>Risk builds with each step</span><span class="font-bold text-slate-900">92% confidence</span></div>
+                </div>
+
+                <div class="mt-5 bg-teal-50 border border-teal-100 rounded-2xl p-4">
+                  <div class="flex gap-2.5 items-start">
+                    <span class="w-8 h-8 rounded-full bg-brand-700 text-white flex items-center justify-center shrink-0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M12 6v2M12 14h.01"/></svg></span>
+                    <div>
+                      <div class="text-sm font-bold text-teal-900">Calm, next step</div>
+                      <p class="mt-1 text-sm leading-relaxed text-teal-800">Verify independently through your bank or courier’s official app. Don’t tap the link. If unsure, tap Ask Family — we’ll share a summary they can check in one tap.</p>
+                    </div>
+                  </div>
+                  <div class="mt-4 grid grid-cols-2 gap-2">
+                    <button class="py-2.5 rounded-full bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800 transition">Verify Instead</button>
+                    <button class="py-2.5 rounded-full bg-white border border-slate-200 text-sm font-semibold hover:bg-slate-50 transition">Pause Payment</button>
+                  </div>
+                  <div class="mt-3 flex items-center gap-2 text-xs text-teal-700">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                    Every flag shows its reasons. You stay in control.
+                  </div>
+                </div>
+
+                <div class="mt-4 text-xs text-slate-500 bg-white border border-slate-200 rounded-xl px-3 py-2.5 flex gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.6" class="shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                  <span>Sample only — not a real alert. SCAMSTOP never asks you to pay or share an OTP.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-center text-xs text-slate-500">Design is illustrative. Real warning appears as a phone notification and in-app card.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCAM TYPES -->
+    <section class="py-16 sm:py-20 bg-slate-50 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-white border border-teal-100 rounded-full px-3 py-1">SCAM TYPES COVERED</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">One assistant, many traps.</h2>
+          <p class="mt-3 text-slate-600">If it asks for money, data or a click — we check it. Across SMS, calls, messaging apps and UPI.</p>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M20 12V8a2 2 0 0 0-1-1.73l-7-4-7 4A2 2 0 0 0 4 8v8a2 2 0 0 0 1 1.73l7 4 7-4A2 2 0 0 0 20 12z"/><path d="M3.3 7L12 12l8.7-5"/><path d="M12 22V12"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Fake delivery / courier alerts</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Pay ₹49 to reschedule delivery” — link goes to a fake site.</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 11l2 2-2 2M8 11l-2 2 2 2"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Bank & financial impersonation</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Your account blocked — verify KYC now” with a spoofed link.</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="1.6"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Utility, electricity & toll threats</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Power will be cut tonight — pay now to avoid fee.”</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 10h10M7 14h6"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Subscription & billing scams</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Your streaming payment failed — update details here.”</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Family / friend emergency</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Mom, I’m stuck — send ₹5,000 urgently” from unknown number.</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Fake job offers</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Earn ₹3,000 daily — pay registration fee to start.”</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A18 18 0 0 1 3 5.2 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7l1 5a2 2 0 0 1-.6 1.8l-2.2 2.2a15 15 0 0 0 6 6l2.2-2.2a2 2 0 0 1 1.8-.6l5 1A2 2 0 0 1 22 16.9z"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Spoofed “own number” messages</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">A message that looks like it came from your own number.</p>
+          </div>
+          <div class="bg-white rounded-3xl border border-slate-200 p-6 hover:shadow-card transition reveal">
+            <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3 class="mt-4 text-sm font-bold text-slate-900">Government & tax impersonation</h3>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">“Tax refund pending — click to verify PAN immediately.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-teal-50 border border-teal-100 rounded-full px-3 py-1">FEATURES</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Protection that fits real life.</h2>
+          <p class="mt-3 text-slate-600">Big buttons, voice warnings, family links — designed for people, not security teams.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="mt-8 flex justify-center">
+          <div class="inline-flex p-1.5 bg-slate-100 rounded-full" role="tablist" aria-label="Feature categories">
+            <button class="feature-tab active px-5 py-2.5 rounded-full text-sm font-semibold bg-white shadow-sm border border-slate-200" data-tab="detection" role="tab" aria-selected="true" id="tab-detection">Detection & Analysis</button>
+            <button class="feature-tab px-5 py-2.5 rounded-full text-sm font-semibold text-slate-600 hover:text-slate-900" data-tab="protection" role="tab" aria-selected="false" id="tab-protection">Protection & Intervention</button>
+            <button class="feature-tab px-5 py-2.5 rounded-full text-sm font-semibold text-slate-600 hover:text-slate-900" data-tab="education" role="tab" aria-selected="false" id="tab-education">Education & Community</button>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <!-- Detection -->
+          <div id="panel-detection" class="feature-panel" role="tabpanel" aria-labelledby="tab-detection">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A18 18 0 0 1 3 5.2 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7l1 5a2 2 0 0 1-.6 1.8l-2.2 2.2a15 15 0 0 0 6 6l2.2-2.2a2 2 0 0 1 1.8-.6l5 1A2 2 0 0 1 22 16.9z"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Voice call scam detection</h3>
+                <p class="mt-1 text-sm text-slate-600">Listens for scam patterns during calls — urgent payment pressure, OTP requests.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10a7 7 0 0 1-14 0"/><path d="M12 19v4M8 23h8"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Deepfake voice alerts</h3>
+                <p class="mt-1 text-sm text-slate-600">Flags when a familiar voice sounds synthetic or cloned.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Screenshot / OCR scanning</h3>
+                <p class="mt-1 text-sm text-slate-600">Take a screenshot, we read it and check links, QR codes and language.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4v4H7zM15 7h4v4h-4zM7 15h4v4H7z"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">QR code scanning</h3>
+                <p class="mt-1 text-sm text-slate-600">Checks where a QR really leads before you pay or open it.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 1 0 7.07 7.07L13 19"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Link reputation checks</h3>
+                <p class="mt-1 text-sm text-slate-600">Age, domain match, redirects — is this really your bank’s site?</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M16 8l4 4-4 4"/><path d="M8 12h12"/><path d="M12 20a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Payment escalation tracking</h3>
+                <p class="mt-1 text-sm text-slate-600">Small test payment → bigger ask. We spot the ramp-up.</p>
+              </div>
+              <div class="rounded-3xl bg-brand-700 text-white p-6 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row items-start md:items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M16 16l4 4M12 8v8M8 12h8"/><circle cx="11" cy="11" r="7"/></svg></div>
+                <div><h3 class="font-bold text-sm">Cross-channel correlation</h3><p class="text-sm text-teal-100">A missed call, then an SMS, then a link — we connect the sequence that single filters miss.</p></div>
+                <span class="ml-auto hidden md:inline text-xs font-bold bg-white text-brand-700 rounded-full px-3 py-1.5">Our core difference</span>
+              </div>
+            </div>
+          </div>
+          <!-- Protection -->
+          <div id="panel-protection" class="feature-panel hidden" role="tabpanel" aria-labelledby="tab-protection" hidden>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">One-tap “Pause Payment”</h3>
+                <p class="mt-1 text-sm text-slate-600">A big, calm button that holds a suspicious transfer so you can check first.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6 ring-2 ring-brand-700/10">
+                <div class="w-10 h-10 rounded-xl bg-brand-700 text-white flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Family Guardian Mode</h3>
+                <p class="mt-1 text-sm text-slate-600">Adult children get a gentle alert when an elderly parent faces a high-risk message.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Big Button simplified mode</h3>
+                <p class="mt-1 text-sm text-slate-600">Large text, large buttons, no jargon. Made for low vision and first-time phones.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10a7 7 0 0 1-14 0"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Voice-read warnings</h3>
+                <p class="mt-1 text-sm text-slate-600">If reading is hard, SCAMSTOP speaks the warning out loud in a calm voice.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-1.9.5 4.48 4.48 0 0 0 1.95-2.5 8.94 8.94 0 0 1-2.8 1.1 4.48 4.48 0 0 0-7.6 4.1 12.7 12.7 0 0 1-9.2-4.7 4.48 4.48 0 0 0 1.4 6 4.4 4.4 0 0 1-2-.55v.06a4.48 4.48 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2 .07 4.48 4.48 0 0 0 4.2 3.1A9 9 0 0 1 2 19.5a12.7 12.7 0 0 0 6.9 2"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Multi-language support</h3>
+                <p class="mt-1 text-sm text-slate-600">Works in everyday English, Hindi and other regional languages.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M14 8l3 3-3 3"/><path d="M17 11H9"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">“Verify Instead” shortcuts</h3>
+                <p class="mt-1 text-sm text-slate-600">One tap opens your real bank or courier app — never the suspicious link.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Education -->
+          <div id="panel-education" class="feature-panel hidden" role="tabpanel" aria-labelledby="tab-education" hidden>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M12 8v-6M8 10l4-4 4 4"/><path d="M16 16v4H8v-4"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Scam simulation trainer</h3>
+                <p class="mt-1 text-sm text-slate-600">Practice spotting fakes in a safe, guided game — no real risk.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M4 22h16M4 6h16M7 6v16M17 6v16"/><path d="M4 10h16M4 14h16"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Weekly scam digest</h3>
+                <p class="mt-1 text-sm text-slate-600">Plain-language update: what’s trending this week and how to stay safe.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M14 9l6 6-6 6"/><path d="M20 15H4"/><path d="M4 9l6-6-6 6z"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Crowdsourced reporting</h3>
+                <p class="mt-1 text-sm text-slate-600">Report a scam in two taps. Help protect thousands nearby.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-50 border border-slate-100 p-6">
+                <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/><path d="M12 2a15 15 0 0 0 0 20"/></svg></div>
+                <h3 class="mt-3 font-bold text-sm">Regional scam trend map</h3>
+                <p class="mt-1 text-sm text-slate-600">See what scams are active in your area — updated from community reports.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section id="who-its-for" class="py-16 sm:py-20 bg-slate-50 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-white border border-teal-100 rounded-full px-3 py-1">WHO IT'S FOR</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Made for the people most targeted.</h2>
+        </div>
+        <div class="mt-10 grid lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-[28px] border border-slate-200 p-7 shadow-sm reveal">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-slate-900">For You & Your Family</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Everyday protection that runs quietly. Checks messages, calls, links and UPI requests. You get a clear “safe or not” answer — no jargon, no guesswork.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700"><li class="flex gap-2"><span class="text-emerald-600">✓</span> Works across SMS, calls, messaging apps</li><li class="flex gap-2"><span class="text-emerald-600">✓</span> Explains every flag in plain language</li></ul>
+            <a href="#waitlist" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800">Get started — it’s free <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <div class="bg-brand-700 rounded-[28px] p-7 text-white relative overflow-hidden reveal">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+            <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="mt-4 inline-flex items-center gap-2 bg-white text-brand-700 text-xs font-bold rounded-full px-3 py-1">★ MOST LOVED</div>
+            <h3 class="mt-3 text-lg font-bold">For Elderly Parents</h3>
+            <p class="text-sm font-semibold text-teal-100">Family Guardian Mode</p>
+            <p class="mt-2 text-sm leading-relaxed text-teal-50">Big buttons, voice warnings, and a family link. If Mom or Dad gets a risky message, you get a gentle note — “Dad got a delivery fee request, please help check it.” No shaming, just support.</p>
+            <ul class="mt-4 space-y-2 text-sm text-teal-50"><li class="flex gap-2"><span>✓</span> Simplified mode for low vision</li><li class="flex gap-2"><span>✓</span> Alerts to a trusted family member</li></ul>
+            <a href="#waitlist" class="mt-6 inline-flex items-center justify-center w-full py-3 rounded-full bg-white text-brand-700 text-sm font-bold hover:bg-teal-50 transition">Learn about Guardian Mode</a>
+          </div>
+
+          <div class="bg-white rounded-[28px] border border-slate-200 p-7 shadow-sm reveal">
+            <div class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/><path d="M2 7l10 5 10-5"/></svg>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-slate-900">For Banks & Telecom Partners</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">API access to the same detection engine. Flag risk before the transaction completes, reduce fraud, and protect customers — without reading raw content unnecessarily.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700"><li class="flex gap-2"><span class="text-emerald-600">✓</span> Explainable risk scores</li><li class="flex gap-2"><span class="text-emerald-600">✓</span> Privacy-minimised by design</li></ul>
+            <a href="#waitlist" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 border border-slate-200 rounded-full px-4 py-2 hover:bg-slate-50">Partner with us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & PRIVACY -->
+    <section class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-teal-50 border border-teal-100 rounded-full px-3 py-1">TRUST & PRIVACY</span>
+            <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Your messages stay yours.</h2>
+            <p class="mt-4 text-[15px] leading-relaxed text-slate-600">We built SCAMSTOP to protect, not to profile. Where possible, checks happen on your phone. If we help verify a link, we never sell what we see. And every warning shows its reasons — so you can judge for yourself.</p>
+            <div class="mt-6 space-y-3">
+              <div class="flex gap-3 items-start bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <div><div class="text-sm font-bold">On-device where possible</div><div class="text-sm text-slate-600">Sensitive checks happen on your phone first.</div></div>
+              </div>
+              <div class="flex gap-3 items-start bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <div><div class="text-sm font-bold">Explainable, not mysterious</div><div class="text-sm text-slate-600">Every flag lists its reasons — unknown sender, fake link, urgency, and more.</div></div>
+              </div>
+              <div class="flex gap-3 items-start bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span>
+                <div><div class="text-sm font-bold">No message content sold, ever</div><div class="text-sm text-slate-600">No raw content stored without your clear consent. Data minimisation by design.</div></div>
+              </div>
+            </div>
+            <p class="mt-4 text-xs text-slate-500">This is a plain-language summary. Real legal and privacy text will be provided before launch — this section is illustrative marketing copy, not a full policy.</p>
+          </div>
+          <div class="bg-slate-50 rounded-[28px] border border-slate-100 p-6 sm:p-8 reveal">
+            <div class="flex items-center gap-3">
+              <span class="w-14 h-14 rounded-2xl bg-brand-700 flex items-center justify-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+              <div>
+                <div class="text-sm font-bold">Privacy by design</div>
+                <div class="text-xs text-slate-600">How we handle your data, in one place.</div>
+              </div>
+              <span class="ml-auto text-xs font-bold bg-emerald-500 text-white rounded-full px-3 py-1">Protected</span>
+            </div>
+            <div class="mt-6 space-y-4">
+              <div class="bg-white rounded-2xl border border-slate-200 p-4 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+                <div class="text-sm"><div class="font-bold">Check link safely</div><div class="text-slate-500 text-xs">We test the link, not your inbox</div></div>
+                <span class="ml-auto text-emerald-600 font-bold text-sm">✓ Safe check</span>
+              </div>
+              <div class="bg-white rounded-2xl border border-slate-200 p-4 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <div class="text-sm"><div class="font-bold">Ask family to double-check</div><div class="text-slate-500 text-xs">Share a clean summary, hide raw content</div></div>
+                <span class="ml-auto text-xs bg-slate-900 text-white rounded-full px-2 py-1">Optional</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-slate-500 justify-center pt-2">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span> Transparent • Minimal • You control sharing
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="py-16 sm:py-20 bg-slate-50 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-white border border-teal-100 rounded-full px-3 py-1">PRICING • COMING SOON</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Simple, fair, and built to be free for everyone who needs it.</h2>
+          <p class="mt-3 text-slate-600">We’re keeping placeholders honest — no made-up numbers until launch.</p>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-[28px] border border-slate-200 p-8 reveal">
+            <div class="text-sm font-bold tracking-widest text-slate-500">FREE</div>
+            <h3 class="mt-2 text-2xl font-extrabold text-slate-900">Core protection</h3>
+            <p class="mt-1 text-sm text-slate-600">For individuals — everything essential, free forever.</p>
+            <div class="mt-6 flex items-baseline gap-2"><span class="text-4xl font-extrabold text-slate-900">Free</span><span class="text-slate-500">to start</span></div>
+            <ul class="mt-6 space-y-2.5 text-sm text-slate-700">
+              <li class="flex gap-2"><span class="text-brand-700">✓</span> SMS, call and link checks</li>
+              <li class="flex gap-2"><span class="text-brand-700">✓</span> High-risk warnings with reasons</li>
+              <li class="flex gap-2"><span class="text-brand-700">✓</span> QR & screenshot scanning</li>
+              <li class="flex gap-2"><span class="text-brand-700">✓</span> Basic history (last 30 days)</li>
+              <li class="flex gap-2"><span class="text-brand-700">✓</span> Community reporting</li>
+            </ul>
+            <a href="#waitlist" class="mt-8 inline-flex items-center justify-center w-full py-3 rounded-full border border-slate-200 font-semibold hover:bg-slate-50 transition">Join the Waitlist</a>
+          </div>
+
+          <div class="bg-brand-700 rounded-[28px] p-8 text-white relative overflow-hidden reveal">
+            <div class="absolute inset-0 bg-gradient-to-br from-teal-600/20 to-transparent"></div>
+            <div class="relative">
+              <div class="inline-flex items-center gap-2 bg-white text-brand-700 text-xs font-bold rounded-full px-3 py-1">★ GUARDIAN • COMING SOON</div>
+              <h3 class="mt-4 text-2xl font-extrabold">Guardian</h3>
+              <p class="mt-1 text-sm text-teal-100">For families who look out for each other.</p>
+              <div class="mt-6 flex items-baseline gap-2"><span class="text-4xl font-extrabold">Guardian</span><span class="text-teal-100 text-sm">family plan</span></div>
+              <p class="mt-1 text-xs text-teal-200">Pricing to be announced — join waitlist for early access</p>
+              <ul class="mt-6 space-y-2.5 text-sm text-white">
+                <li class="flex gap-2"><span>✓</span> Everything in Free, plus</li>
+                <li class="flex gap-2"><span>✓</span> Family Guardian Mode (alerts + approvals)</li>
+                <li class="flex gap-2"><span>✓</span> Unlimited history & search</li>
+                <li class="flex gap-2"><span>✓</span> Priority verification & phone support</li>
+                <li class="flex gap-2"><span>✓</span> Multi-phone management</li>
+              </ul>
+              <a href="#waitlist" class="mt-8 inline-flex items-center justify-center w-full py-3 rounded-full bg-white text-brand-700 font-bold hover:bg-teal-50 transition">Get Guardian Early Access</a>
+              <p class="mt-3 text-xs text-center text-teal-100">No payment today. We’ll email you before launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="text-center reveal">
+          <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-700 bg-teal-50 border border-teal-100 rounded-full px-3 py-1">FAQ</span>
+          <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold tracking-tight text-slate-900">Questions, answered plainly.</h2>
+          <p class="mt-3 text-slate-600">No jargon. Short answers. If you want more, we’ll link the full policy at launch.</p>
+        </div>
+
+        <div class="mt-10 space-y-3" id="faq-list">
+          <!-- item 1 -->
+          <div class="faq-item rounded-2xl border border-slate-200 bg-white overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-inset" aria-expanded="true">
+              <span class="font-semibold text-slate-900">Does SCAMSTOP read all my messages?</span>
+              <span class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center shrink-0 faq-icon">−</span>
+            </button>
+            <div class="faq-panel px-5 pb-5 text-sm leading-relaxed text-slate-600"><p>Only to check for risk, and only where you allow it. Where possible, checks happen on your phone. We show you why something was flagged, and we don’t keep the raw content without your clear permission. You can change this anytime in settings.</p></div>
+          </div>
+          <!-- item 2 -->
+          <div class="faq-item rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-inset" aria-expanded="false">
+              <span class="font-semibold text-slate-900">Will it work for my elderly parent who isn’t tech-savvy?</span>
+              <span class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 faq-icon">+</span>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5 text-sm leading-relaxed text-slate-600"><p>Yes — that’s who we built for. Big Button mode uses large text and one clear action: “Is this safe?” Warnings can be spoken out loud, and Family Guardian Mode lets you get a gentle alert to help double-check — without taking away their independence.</p></div>
+          </div>
+          <!-- item 3 -->
+          <div class="faq-item rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-inset" aria-expanded="false">
+              <span class="font-semibold text-slate-900">What if it flags something that isn’t actually a scam?</span>
+              <span class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 faq-icon">+</span>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5 text-sm leading-relaxed text-slate-600"><p>No system is perfect. That’s why we stack several independent flags before warning you — that cuts false alarms. If we’re unsure, we’ll say “check carefully” rather than “this is a scam,” and you can tell us “I know this sender” to improve next time.</p></div>
+          </div>
+          <!-- item 4 -->
+          <div class="faq-item rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-inset" aria-expanded="false">
+              <span class="font-semibold text-slate-900">Does it work in regional languages?</span>
+              <span class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 faq-icon">+</span>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5 text-sm leading-relaxed text-slate-600"><p>Yes. SCAMSTOP understands common Indian languages including Hindi and other regional languages in messages and voice calls. Weekly digests and voice warnings can also be delivered in your chosen language. More languages are added based on where scams trend.</p></div>
+          </div>
+          <!-- item 5 -->
+          <div class="faq-item rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-inset" aria-expanded="false">
+              <span class="font-semibold text-slate-900">Is my data shared with anyone?</span>
+              <span class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 faq-icon">+</span>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5 text-sm leading-relaxed text-slate-600"><p>We don’t sell message content, ever. Anonymous, aggregated scam reports (like “courier scams up this week”) help power the trend map and help others. Raw content is only stored if you explicitly share it via “Report a Scam,” and you can delete it anytime.</p></div>
+          </div>
+          <!-- item 6 -->
+          <div class="faq-item rounded-2xl border border-slate-100 bg-slate-50 overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-inset" aria-expanded="false">
+              <span class="font-semibold text-slate-900">What does it actually protect — SMS, calls, UPI, messaging apps?</span>
+              <span class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 faq-icon">+</span>
+            </button>
+            <div class="faq-panel hidden px-5 pb-5 text-sm leading-relaxed text-slate-600"><p>All of them. SMS, phone calls, messaging apps, links, QR codes and UPI requests. If it asks for money, an OTP, or a click on a strange link, SCAMSTOP checks the whole chain and warns you before you act. One assistant for every channel.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST / CTA -->
+    <section id="waitlist" class="py-10 sm:py-16">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="rounded-[32px] bg-brand-900 overflow-hidden relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-800 via-brand-900 to-slate-900"></div>
+          <div class="absolute -right-20 -top-20 w-[420px] h-[420px] bg-teal-600/20 rounded-full blur-3xl"></div>
+          <div class="relative grid lg:grid-cols-2 gap-8 p-7 sm:p-10 lg:p-12 items-center">
+            <div>
+              <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-bold tracking-widest rounded-full px-3 py-1">GET EARLY ACCESS</span>
+              <h2 class="mt-4 text-[28px] sm:text-4xl font-extrabold leading-tight text-white">Be the first to know when SCAMSTOP launches.</h2>
+              <p class="mt-3 text-teal-100 leading-relaxed">Join the waitlist — we’ll email you early access, plus a simple one-page guide you can share with family: “How to spot a scam in 30 seconds.”</p>
+              <div class="mt-6 flex flex-wrap gap-3 text-xs font-medium text-teal-200">
+                <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span> No spam, ever</span>
+                <span class="w-1 h-1 bg-white/30 rounded-full mt-2"></span>
+                <span>Unsubscribe anytime</span>
+                <span class="w-1 h-1 bg-white/30 rounded-full mt-2"></span>
+                <span>Privacy by design</span>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-[24px] p-6 sm:p-7 shadow-xl">
+              <form id="waitlist-form" novalidate class="space-y-4">
+                <div>
+                  <label for="wl-name" class="text-sm font-semibold text-slate-900">Your name <span class="text-slate-400 font-normal">(optional)</span></label>
+                  <input id="wl-name" name="name" type="text" placeholder="Asha Patel" autocomplete="name" class="mt-1.5 w-full rounded-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700 focus:border-transparent" />
+                </div>
+                <div>
+                  <label for="wl-email" class="text-sm font-semibold text-slate-900">Email address <span class="text-red-500">*</span></label>
+                  <input id="wl-email" name="email" type="email" placeholder="asha@example.com" required autocomplete="email" class="mt-1.5 w-full rounded-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-700 focus:border-transparent" aria-describedby="wl-email-error" />
+                  <p id="wl-email-error" class="hidden mt-2 text-xs text-red-600" role="alert"></p>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <input id="wl-consent" type="checkbox" class="mt-1 w-4 h-4 rounded border-slate-300 text-brand-700 focus:ring-brand-700" required />
+                  <label for="wl-consent" class="text-xs leading-relaxed text-slate-600">I agree to get the SCAMSTOP launch email and the free 30-second guide. No spam, unsubscribe anytime. <a href="#" class="underline decoration-slate-300 hover:decoration-slate-600">Privacy</a>.</label>
+                </div>
+                <p id="wl-consent-error" class="hidden -mt-2 text-xs text-red-600" role="alert"></p>
+                <button type="submit" class="w-full py-3.5 rounded-full bg-brand-700 text-white font-bold hover:bg-brand-800 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+                  Join the Waitlist — It’s Free
+                </button>
+                <p class="text-center text-xs text-slate-500">Or <a href="#report" class="font-semibold text-brand-700 hover:underline">Report a Scam</a> you saw today</p>
+                <div id="wl-success" class="hidden rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
+                  <div class="flex gap-3">
+                    <span class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">✓</span>
+                    <div>
+                      <div class="text-sm font-bold text-emerald-900">You’re on the list!</div>
+                      <div class="text-sm text-emerald-800">We’ll email you at <span id="wl-success-email" class="font-semibold"></span> when early access opens. Check your inbox for the 30-second guide.</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="relative px-7 sm:px-10 lg:px-12 pb-4 -mt-2">
+            <p class="text-xs text-teal-200/80">By joining, you agree to our placeholder Terms and Privacy — final legal text will be shared before launch. This form is front-end only for the demo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORT A SCAM anchor target -->
+    <section id="report" class="py-10">
+      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div class="rounded-3xl border-2 border-dashed border-slate-200 bg-slate-50/50 p-6 sm:p-8 flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+          <div class="flex gap-4">
+            <span class="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg></span>
+            <div>
+              <h3 class="font-bold text-slate-900">Seen a scam? Report it — help others nearby.</h3>
+              <p class="mt-1 text-sm text-slate-600">Two taps, no personal data required. Your report powers the regional trend map.</p>
+            </div>
+          </div>
+          <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-black transition shrink-0">Report a Scam (demo)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10">
+      <div class="grid lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-8">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-brand-700 flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 7.5V12.2C4 16.4 6.9 20.3 12 21C17.1 20.3 20 16.4 20 12.2V7.5L12 3Z" fill="white"/><path d="M8.5 12.3L11 14.8L16.2 9.2" stroke="#0f766e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="font-extrabold tracking-tight">SCAMSTOP</span>
+            <span class="text-xs border border-slate-200 rounded-full px-2 py-0.5 text-slate-500">AI PROTECTION</span>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 max-w-sm">Calm, clear scam protection for everyday people. We check the whole pattern — so you don’t have to.</p>
+          <div class="mt-5 flex gap-2">
+            <a href="#" class="w-9 h-9 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-black transition" aria-label="X / Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 3H22l-6.6 7.6L23 21h-6.1l-4.8-6.2L6.6 21H3.5l7.1-8.1L3 3h6.3l4.3 5.7L18.9 3z"/></svg></a>
+            <a href="#" class="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="text-sm font-bold text-slate-900">Product</div>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600">
+            <li><a href="#how-it-works" class="hover:text-slate-900">How It Works</a></li>
+            <li><a href="#features" class="hover:text-slate-900">Features</a></li>
+            <li><a href="#who-its-for" class="hover:text-slate-900">Who It’s For</a></li>
+            <li><a href="#pricing" class="hover:text-slate-900">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-sm font-bold text-slate-900">Resources</div>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600">
+            <li><a href="#faq" class="hover:text-slate-900">FAQ</a></li>
+            <li><a href="#report" class="hover:text-slate-900">Report a Scam</a></li>
+            <li><a href="#waitlist" class="hover:text-slate-900">Join Waitlist</a></li>
+            <li><a href="#" class="hover:text-slate-900">Weekly Digest (coming soon)</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-sm font-bold text-slate-900">Legal</div>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600">
+            <li><a href="#" class="hover:text-slate-900">Privacy Policy — placeholder</a></li>
+            <li><a href="#" class="hover:text-slate-900">Terms — placeholder</a></li>
+            <li><a href="#" class="hover:text-slate-900">Contact</a></li>
+          </ul>
+          <div class="mt-4 text-xs text-slate-500">No real policy yet — placeholder links. Replace before public launch.</div>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3 justify-between items-center text-xs text-slate-500">
+        <span>© 2026 SCAMSTOP. All rights reserved. Built to protect, not to profile.</span>
+        <span class="flex items-center gap-2">Made with <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> for families • Stay safe</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-sm font-medium px-5 py-3 rounded-full shadow-xl hidden items-center gap-2 z-50">
+    <span class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center">✓</span>
+    <span id="toast-msg">You’re on the waitlist!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
