@@ -50,7 +50,7 @@ export default function App(){
             <span className="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center shadow-lg shadow-teal-700/20">
               <ShieldCheck size={18} className="text-white"/>
             </span>
-            <span className="text-[18px] font-black tracking-tight text-white">SCAMSTOP</span>
+            <span className="text-[18px] font-black tracking-tight text-white">FINWALL</span>
             <span className="hidden sm:inline rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-bold tracking-widest text-slate-400">AI FIREWALL</span>
           </div>
 

@@ -27,7 +27,7 @@ export function Settings(){
       </div>
 
       <div className="grid gap-4">
-        <Row icon={ShieldCheck} title="Protection status" desc="SCAMSTOP monitoring and intervention.">
+        <Row icon={ShieldCheck} title="Protection status" desc="FINWALL monitoring and intervention.">
           <button onClick={toggleProtection} className={`rounded-full px-5 py-2 text-sm font-bold ${protectionActive?'bg-emerald-600 text-white':'bg-white/10 text-slate-300 border border-white/10'}`}>{protectionActive?'ACTIVE':'Paused'}</button>
         </Row>
 
@@ -35,7 +35,7 @@ export function Settings(){
           <label className="flex items-center gap-2 text-sm text-white"><input type="checkbox" checked={notify} onChange={e=>setNotify(e.target.checked)} className="accent-teal-600"/> Enable</label>
         </Row>
 
-        <Row icon={Sliders} title="Scam sensitivity" desc="Higher = earlier warnings but more false positives. SCAMSTOP stacks signals.">
+        <Row icon={Sliders} title="Scam sensitivity" desc="Higher = earlier warnings but more false positives. FINWALL stacks signals.">
           <div className="w-48">
             <input type="range" min={0} max={100} value={sensitivity} onChange={e=>setSensitivity(Number(e.target.value))} className="w-full accent-teal-600"/>
             <div className="text-xs text-slate-400 text-right">{sensitivity}%</div>
@@ -60,7 +60,7 @@ export function Settings(){
           <span className="text-xs text-slate-400">Demo ON</span>
         </Row>
 
-        <Row icon={Info} title="About SCAMSTOP" desc="AI risk estimate, not a guarantee. Explainable, context-centric firewall. Version 0.1 prototype.">
+        <Row icon={Info} title="About FINWALL" desc="AI risk estimate, not a guarantee. Explainable, context-centric firewall. Version 0.1 prototype.">
           <span className="text-xs font-mono text-slate-500">v0.1.0 • prototype</span>
         </Row>
       </div>

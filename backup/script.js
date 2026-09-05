@@ -1,4 +1,4 @@
-// SCAMSTOP — interactions (vanilla, no deps)
+// FINWALL — interactions (vanilla, no deps)
 
 (function () {
   const $ = (s, r = document) => r.querySelector(s);

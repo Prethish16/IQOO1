@@ -14,7 +14,7 @@ export function FraudChain() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-black tracking-tight text-white">Fraud Chain</h1>
-        <p className="text-sm text-slate-400 mt-1">SCAMSTOP doesn't just analyze the final transaction. It reconstructs what happened before it.</p>
+        <p className="text-sm text-slate-400 mt-1">FINWALL doesn't just analyze the final transaction. It reconstructs what happened before it.</p>
       </div>
 
       <div className="grid lg:grid-cols-[1.4fr_0.9fr] gap-6">
@@ -80,7 +80,7 @@ export function FraudChain() {
               ))}
             </div>
             <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-xs leading-relaxed text-slate-300">
-              The chain accumulates evidence. One flag is not enough — SCAMSTOP waits until several independent signals line up, so you get fewer false alarms and fewer missed scams.
+              The chain accumulates evidence. One flag is not enough — FINWALL waits until several independent signals line up, so you get fewer false alarms and fewer missed scams.
             </div>
           </div>
 
@@ -101,7 +101,7 @@ export function FraudChain() {
               ))}
             </div>
             <div className="mt-3 rounded-xl bg-teal-600/15 border border-teal-500/20 p-3 text-xs leading-relaxed text-teal-100">
-              <ShieldCheck size={14} className="inline -mt-0.5 mr-1"/> SCAMSTOP detected a <span className="font-bold text-white">coordinated social-engineering pattern</span> rather than relying on a single suspicious signal.
+              <ShieldCheck size={14} className="inline -mt-0.5 mr-1"/> FINWALL detected a <span className="font-bold text-white">coordinated social-engineering pattern</span> rather than relying on a single suspicious signal.
             </div>
           </div>
         </div>

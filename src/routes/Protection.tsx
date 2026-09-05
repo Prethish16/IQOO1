@@ -71,7 +71,7 @@ export function Protection() {
             ['Paste Message','Paste any SMS/WhatsApp/email + analyze'],
             ['Paste URL','Check link reputation + domain mismatch'],
             ['Upload Screenshot','OCR reads image + QR + language'],
-            ['Share to SCAMSTOP','System share sheet → same engine'],
+            ['Share to FINWALL','System share sheet → same engine'],
           ].map(([t,d])=> (
             <div key={t} className="rounded-xl border border-white/10 bg-white/5 p-4">
               <div className="font-bold text-white text-sm">{t}</div>
@@ -122,7 +122,7 @@ export function Protection() {
             <div className="mt-2 font-mono text-sm text-slate-300">Transaction → Fraud Score</div>
           </div>
           <div className="rounded-2xl border border-teal-500/30 bg-teal-600/10 p-4">
-            <div className="text-xs font-bold tracking-widest text-teal-300">SCAMSTOP</div>
+            <div className="text-xs font-bold tracking-widest text-teal-300">FINWALL</div>
             <div className="mt-2 font-mono text-sm text-white">Communication + Browser + Context + Behavior + Payment → Attack Chain → Risk</div>
           </div>
         </div>

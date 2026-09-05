@@ -16,13 +16,13 @@ export function Dashboard({ onScan, onLab }: { onScan:()=>void, onLab:()=>void }
         <div className="absolute -left-20 -bottom-20 w-[380px] h-[380px] bg-violet-500/10 rounded-full blur-[80px]" />
         <div className="relative">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold tracking-wide text-teal-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> SCAMSTOP — Stop the scam before the payment.
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> FINWALL — Stop the scam before the payment.
           </div>
           <h1 className="mt-4 text-[30px] sm:text-[42px] font-black leading-[0.95] tracking-tight">
             An AI <span className="bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent">financial firewall</span><br/> that understands the chain.
           </h1>
           <p className="mt-3 max-w-2xl text-sm sm:text-[15px] leading-relaxed text-slate-400">
-            <span className="text-slate-200 font-medium">Traditional fraud asks: “Is this transaction suspicious?”</span> <br/> <span className="text-white font-semibold">SCAMSTOP asks: “Why is this person making this transaction right now?”</span> — analyzing <span className="text-slate-200">Message → Sender → Language → Link → Website → QR → Payment → Behavior</span>
+            <span className="text-slate-200 font-medium">Traditional fraud asks: “Is this transaction suspicious?”</span> <br/> <span className="text-white font-semibold">FINWALL asks: “Why is this person making this transaction right now?”</span> — analyzing <span className="text-slate-200">Message → Sender → Language → Link → Website → QR → Payment → Behavior</span>
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <button onClick={onScan} className="inline-flex items-center gap-2 rounded-full bg-teal-600 px-6 py-3.5 text-sm font-bold text-white hover:bg-teal-500 transition shadow-[0_10px_30px_rgba(13,148,136,0.35)]">
@@ -41,7 +41,7 @@ export function Dashboard({ onScan, onLab }: { onScan:()=>void, onLab:()=>void }
               </span>
             ))}
             <span className="text-slate-600">→</span>
-            <span className="rounded-full bg-red-600 px-3 py-1.5 text-white flex items-center gap-1.5 shadow-lg"><span>🛑</span> SCAMSTOP</span>
+            <span className="rounded-full bg-red-600 px-3 py-1.5 text-white flex items-center gap-1.5 shadow-lg"><span>🛑</span> FINWALL</span>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export function Dashboard({ onScan, onLab }: { onScan:()=>void, onLab:()=>void }
                 <ShieldCheck size={26} />
               </motion.div>
               <div>
-                <div className="text-xs font-bold tracking-[0.18em] text-emerald-300 flex items-center gap-2">🛡 SCAMSTOP PROTECTION <span className={`rounded-full px-2 py-0.5 text-[10px] font-black ${protectionActive?'bg-emerald-500 text-white':'bg-slate-700 text-slate-300'}`}>{protectionActive?'ACTIVE':'PAUSED'}</span></div>
+                <div className="text-xs font-bold tracking-[0.18em] text-emerald-300 flex items-center gap-2">🛡 FINWALL PROTECTION <span className={`rounded-full px-2 py-0.5 text-[10px] font-black ${protectionActive?'bg-emerald-500 text-white':'bg-slate-700 text-slate-300'}`}>{protectionActive?'ACTIVE':'PAUSED'}</span></div>
                 <div className="text-sm font-medium text-slate-300 mt-1 max-w-xl">Monitoring security-relevant activity and looking for suspicious social-engineering patterns.</div>
                 <div className="text-xs text-slate-500 mt-1 flex items-center gap-2"><Activity size={12}/> Cross-channel: message • sender • link • site • payment • behavior</div>
               </div>
@@ -84,7 +84,7 @@ export function Dashboard({ onScan, onLab }: { onScan:()=>void, onLab:()=>void }
           <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs font-bold">
             {['Impersonation','Urgency','Fear / Greed / Emotion','Redirection','Credential or Payment Request'].map(n=> <span key={n} className="rounded-full bg-teal-600 text-white px-3 py-1.5">{n}</span>)}
           </div>
-          <div className="mt-4 flex justify-center"><span className="rounded-full bg-white text-slate-900 px-4 py-1.5 text-xs font-black">SCAMSTOP</span></div>
+          <div className="mt-4 flex justify-center"><span className="rounded-full bg-white text-slate-900 px-4 py-1.5 text-xs font-black">FINWALL</span></div>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export function Dashboard({ onScan, onLab }: { onScan:()=>void, onLab:()=>void }
           <div className="text-sm font-bold tracking-widest text-teal-100">FINAL</div>
           <h3 className="mt-2 text-2xl sm:text-3xl font-black text-white">Don't just ask if the payment is suspicious.<br/>Ask why the user is making it.</h3>
           <div className="mt-2 text-teal-100 font-semibold">Understand the attack. Explain the risk. Stop the scam.</div>
-          <button onClick={onScan} className="mt-5 rounded-full bg-white px-7 py-3 text-sm font-black text-teal-700 hover:bg-slate-100 transition">Try SCAMSTOP — Scan a message</button>
+          <button onClick={onScan} className="mt-5 rounded-full bg-white px-7 py-3 text-sm font-black text-teal-700 hover:bg-slate-100 transition">Try FINWALL — Scan a message</button>
         </div>
       </div>
     </div>

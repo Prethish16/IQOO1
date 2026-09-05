@@ -2,7 +2,7 @@ import { mockAnalyze, beforePayRisk, buildChainFromResult } from './src/engine/m
 import { SCAM_CATEGORIES, LEGIT_EXAMPLES } from './src/engine/scenarios.ts';
 
 // test harness without TS loader - we will use tsx to run
-console.log('=== SCAMSTOP Engine Tests ===');
+console.log('=== FINWALL Engine Tests ===');
 
 let pass=0, fail=0;
 function assert(cond, msg){

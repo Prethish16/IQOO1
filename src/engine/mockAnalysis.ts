@@ -126,7 +126,7 @@ export function buildChainFromResult(r: ScamResult): ChainEvent[] {
     { time:'10:04 AM', label:'Message received', sub:'Known sender • SBI', status:'normal', detail:'Matches official pattern, no threat', risk:'Low' },
     { time:'10:05 AM', label:'Domain check', sub:'sbi.co.in — verified', status:'normal', detail:'Official domain', risk:'Low' },
     { time:'10:06 AM', label:'Language check', sub:'No urgency', status:'normal', detail:'Normal transactional language', risk:'Low' },
-    { time:'10:06 AM', label:'SCAMSTOP', sub:'No chain detected', status:'normal', detail:'No intervention needed', risk:'Safe' },
+    { time:'10:06 AM', label:'FINWALL', sub:'No chain detected', status:'normal', detail:'No intervention needed', risk:'Safe' },
   ]
   return [
     { time:'10:02 AM', label:'Unknown caller', sub:'+91 62•••••11 • First contact', status:'critical', detail:'Unknown sender initiated contact before message', risk:'Critical' },
@@ -136,7 +136,7 @@ export function buildChainFromResult(r: ScamResult): ChainEvent[] {
     { time:'10:08 AM', label:'QR code detected', sub:'Payment QR', status:'warn', detail:'QR leads to external UPI', risk:'High' },
     { time:'10:09 AM', label:'New beneficiary', sub:'First-time payee • Not in contacts', status:'critical', detail:'New recipient introduced', risk:'Critical' },
     { time:'10:09 AM', label:'₹18,500 payment initiated', sub:'Rapid sequence — 7 mins', status:'critical', detail:'Unusual amount + new beneficiary', risk:'Critical' },
-    { time:'10:09 AM', label:'🛑 SCAMSTOP INTERVENTION', sub:'Payment paused — social-engineering chain', status:'blocked', detail:'Impersonation → Fear → Urgency → Phishing → Payment', risk:'Blocked' },
+    { time:'10:09 AM', label:'🛑 FINWALL INTERVENTION', sub:'Payment paused — social-engineering chain', status:'blocked', detail:'Impersonation → Fear → Urgency → Phishing → Payment', risk:'Blocked' },
   ]
 }
 

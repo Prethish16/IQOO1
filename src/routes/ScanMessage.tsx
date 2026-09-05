@@ -90,7 +90,7 @@ export function ScanMessage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-black tracking-tight text-white">Scan a suspicious message</h1>
-        <p className="text-sm text-slate-400 mt-1">Paste a message, URL, or payment request and let SCAMSTOP analyze it.</p>
+        <p className="text-sm text-slate-400 mt-1">Paste a message, URL, or payment request and let FINWALL analyze it.</p>
       </div>
 
       <div className="rounded-[24px] border border-white/10 bg-white/[0.04] backdrop-blur p-5 sm:p-6">
@@ -133,7 +133,7 @@ export function ScanMessage() {
             <div className="flex items-center gap-3">
               <span className="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white"><Sparkles size={16}/></span>
               <div>
-                <div className="text-sm font-black tracking-wide text-white">SCAMSTOP AI ANALYSIS</div>
+                <div className="text-sm font-black tracking-wide text-white">FINWALL AI ANALYSIS</div>
                 <div className="text-xs text-teal-200">Analyzing chain: message → sender → language → link → behavior</div>
               </div>
               <span className="ml-auto text-xs font-bold text-teal-300">{Math.round((progress/STEPS.length)*100)}%</span>
@@ -224,7 +224,7 @@ export function ScanMessage() {
                     ))}
                   </div>
                   <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-xs leading-relaxed text-slate-300">
-                    <span className="font-bold text-white">SCAMSTOP reasoning:</span> Detected a coordinated social-engineering pattern rather than relying on a single suspicious signal. The chain accumulates risk across sender → impersonation → urgency → redirection.
+                    <span className="font-bold text-white">FINWALL reasoning:</span> Detected a coordinated social-engineering pattern rather than relying on a single suspicious signal. The chain accumulates risk across sender → impersonation → urgency → redirection.
                   </div>
                 </motion.div>
               )}
@@ -248,7 +248,7 @@ export function ScanMessage() {
                   )) : <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm font-bold text-emerald-300">No attack pattern detected ✓</div>}
                   {lastResult.isScam && (
                     <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.8}} className="mt-3 flex items-center gap-2 rounded-full bg-red-600 px-4 py-2 text-xs font-black text-white">
-                      ✕ BLOCKED — SCAMSTOP <span className="w-1 h-1 bg-white rounded-full"/> Payment paused
+                      ✕ BLOCKED — FINWALL <span className="w-1 h-1 bg-white rounded-full"/> Payment paused
                     </motion.div>
                   )}
                 </div>
@@ -264,7 +264,7 @@ export function ScanMessage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-xs leading-relaxed text-slate-300">
-              <span className="font-bold text-white">Safety note:</span> Never claim 100% official / guaranteed safe. Always use <span className="font-semibold text-white">AI Risk Estimate</span>, verify independently through official apps or numbers. SCAMSTOP explains <em>why</em> — you stay in control.
+              <span className="font-bold text-white">Safety note:</span> Never claim 100% official / guaranteed safe. Always use <span className="font-semibold text-white">AI Risk Estimate</span>, verify independently through official apps or numbers. FINWALL explains <em>why</em> — you stay in control.
             </div>
           </motion.div>
         )}

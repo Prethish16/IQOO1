@@ -51,7 +51,7 @@ export const useStore = create<State>((set)=>({
     { time:'10:08 AM', label:'QR code detected', sub:'Payment QR', status:'warn', detail:'QR', risk:'High' },
     { time:'10:09 AM', label:'New beneficiary', sub:'First-time payee', status:'critical', detail:'New recipient', risk:'Critical' },
     { time:'10:09 AM', label:'₹18,500 payment initiated', sub:'7-min sequence', status:'critical', detail:'Rapid payment', risk:'Critical' },
-    { time:'10:09 AM', label:'🛑 SCAMSTOP INTERVENTION', sub:'Payment paused', status:'blocked', detail:'Chain blocked', risk:'Blocked' },
+    { time:'10:09 AM', label:'🛑 FINWALL INTERVENTION', sub:'Payment paused', status:'blocked', detail:'Chain blocked', risk:'Blocked' },
   ],
   setChain: (chain)=>set({chain}),
   reports: DEMO_REPORTS,

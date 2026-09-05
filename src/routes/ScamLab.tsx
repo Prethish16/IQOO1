@@ -107,7 +107,7 @@ export function ScamLab({ onBlocked }: { onBlocked: ()=>void }) {
                   <div className="rounded-[20px] border border-red-500/30 bg-gradient-to-br from-red-600/20 to-orange-500/10 p-6 text-center">
                     <div className="inline-flex items-center gap-2 rounded-full bg-red-600 px-4 py-1.5 text-xs font-black text-white">🛑 PAYMENT PAUSED</div>
                     <h3 className="mt-3 text-xl font-black text-white">CRITICAL SOCIAL-ENGINEERING RISK</h3>
-                    <div className="mt-1 text-sm text-red-200">SCAMSTOP interrupted the chain before money left.</div>
+                    <div className="mt-1 text-sm text-red-200">FINWALL interrupted the chain before money left.</div>
 
                     <div className="mt-5 flex flex-wrap justify-center gap-2 text-xs font-bold">
                       {['Impersonation','Fear','Urgency','Phishing','Payment'].map((n,i)=>(
@@ -138,7 +138,7 @@ export function ScamLab({ onBlocked }: { onBlocked: ()=>void }) {
               ) : (
                 <motion.div initial={{opacity:0}} animate={{opacity:1}} className="mt-6">
                   <div className="rounded-[20px] border border-white/10 bg-white/[0.04] p-6">
-                    <div className="text-xs font-bold tracking-[0.16em] text-teal-300 text-center">ATTACK GRAPH — WHERE SCAMSTOP INTERVENED</div>
+                    <div className="text-xs font-bold tracking-[0.16em] text-teal-300 text-center">ATTACK GRAPH — WHERE FINWALL INTERVENED</div>
                     <div className="mt-6 flex flex-col items-center">
                       {[
                         'FAKE BANK','IMPERSONATION','FEAR','URGENCY','PHISHING LINK','FAKE WEBSITE','QR','PAYMENT'
@@ -149,8 +149,8 @@ export function ScamLab({ onBlocked }: { onBlocked: ()=>void }) {
                         </div>
                       ))}
                       <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.9, type:'spring'}} className="mt-2 w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center font-black">✕</motion.div>
-                      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} className="mt-2 rounded-full bg-emerald-600 px-5 py-2 text-xs font-black text-white">SCAMSTOP — INTERVENTION</motion.div>
-                      <div className="mt-4 text-center text-xs text-slate-400 max-w-md">Every scam is a <span className="text-white font-bold">story that causes payment</span>. SCAMSTOP traces communication + context + behavior → attack chain → risk → explainable intervention.</div>
+                      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1}} className="mt-2 rounded-full bg-emerald-600 px-5 py-2 text-xs font-black text-white">FINWALL — INTERVENTION</motion.div>
+                      <div className="mt-4 text-center text-xs text-slate-400 max-w-md">Every scam is a <span className="text-white font-bold">story that causes payment</span>. FINWALL traces communication + context + behavior → attack chain → risk → explainable intervention.</div>
                     </div>
                     <div className="mt-6 flex justify-center">
                       <button onClick={()=>setActive(null)} className="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-slate-900">Done</button>
@@ -166,7 +166,7 @@ export function ScamLab({ onBlocked }: { onBlocked: ()=>void }) {
       {!active && (
         <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-6 text-center">
           <div className="text-sm font-bold text-white">Tip for judges</div>
-          <div className="text-xs text-slate-400 mt-1">Launch any scenario → click through call → message → fake site → QR → watch SCAMSTOP pause the ₹ payment and show the Attack Graph. This is the core hackathon demo.</div>
+          <div className="text-xs text-slate-400 mt-1">Launch any scenario → click through call → message → fake site → QR → watch FINWALL pause the ₹ payment and show the Attack Graph. This is the core hackathon demo.</div>
         </div>
       )}
     </div>

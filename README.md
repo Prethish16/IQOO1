@@ -1,4 +1,4 @@
-# SCAMSTOP — AI Financial Firewall
+# FINWALL — AI Financial Firewall
 
 A real-time scam detection and fraud chain analysis tool that helps users identify social engineering attacks before they lose money.
 
@@ -200,4 +200,4 @@ Feedback and improvements welcome!
 
 ---
 
-**Stay safe. Think before you pay. SCAMSTOP.** 🛡️
+**Stay safe. Think before you pay. FINWALL.** 🛡️
